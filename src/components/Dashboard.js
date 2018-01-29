@@ -16,15 +16,25 @@ class Dashboard extends Component {
       bookPub = contract(BookPub);
       bookPub.setProvider(web3.currentProvider);
       bookPub.deployed().then(instance => {
-        console.log(instance);
+        console.log('instance: ', instance);
         bookPub = instance;
-        instance.books(0).then(book => {
+        instance.getBook(0).then(book => {
           this.setState({ book });
-          console.log(book);
+          console.log('book: ', book);
         });
       });
     });
   }
+  handleChange = (fieldName, event) => {
+    const state = {
+      ...this.state,
+    };
+    state[fieldName] = event.target.value;
+    this.setState(state);
+  };
+  modifyBook = () => {
+    console.log(this.state);
+  };
   render() {
     const { book } = this.state;
     return (
@@ -75,14 +85,35 @@ class Dashboard extends Component {
               </div>
             </div>
             <div className="in-buttons">
-            <button>Funding Goal</button>
-                      <button>Users To Admit</button>
-                      <button>Amount</button>
-                      <button>Sale Start</button>
-                      <button>Sale End</button>
-
+              <input
+                type="text"
+                value="Funding Goal"
+                onChange={this.handleChange.bind(this, 'goal')}
+              />
+              <input
+                type="text"
+                value="Users To Admit"
+                onChange={this.handleChange.bind(this, 'usersToAdmit')}
+              />
+              <input
+                type="text"
+                value="Amount"
+                onChange={this.handleChange.bind(this, 'amount')}
+              />
+              <input
+                type="text"
+                value="Sale Start"
+                onChange={this.handleChange.bind(this, 'saleStart')}
+              />
+              <input
+                type="text"
+                value="Sale End"
+                onChange={this.handleChange.bind(this, 'saleEnd')}
+              />
               <Link to="/user">
-                <button className="last-one">Start Funding Round</button>
+                <button className="last-one" onClick={this.modifyBook}>
+                  Start Funding Round
+                </button>
               </Link>
             </div>
           </div>

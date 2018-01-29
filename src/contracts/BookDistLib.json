@@ -69,8 +69,8 @@
       "type": "event"
     }
   ],
-  "bytecode": "0x6060604052341561000f57600080fd5b6101a68061001e6000396000f300606060405260043610610057576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806330f7451e1461005c578063988e039014610066578063fc6dc17d1461007e575b600080fd5b6100646100ac565b005b61007c6004808035906020019091905050610111565b005b6100aa600480803573ffffffffffffffffffffffffffffffffffffffff16906020019091905050610114565b005b7f2230584ab8fade77c64e5c255605d55e33bda0fd1da9b3b6b76e9554d36fc35133604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390a1565b50565b7f23ebbcb002c7eea3cd701655c9274556b48dfd35cdce070c2fbc9101b5f7159081604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390a1505600a165627a7a72305820b5840238e46a6e012cbfdc2e4c3ba6952cbf88c42f62efb8ba2e17122a0b73720029",
-  "deployedBytecode": "0x606060405260043610610057576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806330f7451e1461005c578063988e039014610066578063fc6dc17d1461007e575b600080fd5b6100646100ac565b005b61007c6004808035906020019091905050610111565b005b6100aa600480803573ffffffffffffffffffffffffffffffffffffffff16906020019091905050610114565b005b7f2230584ab8fade77c64e5c255605d55e33bda0fd1da9b3b6b76e9554d36fc35133604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390a1565b50565b7f23ebbcb002c7eea3cd701655c9274556b48dfd35cdce070c2fbc9101b5f7159081604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390a1505600a165627a7a72305820b5840238e46a6e012cbfdc2e4c3ba6952cbf88c42f62efb8ba2e17122a0b73720029",
+  "bytecode": "0x6060604052341561000f57600080fd5b6101a68061001e6000396000f300606060405260043610610057576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806330f7451e1461005c578063988e039014610066578063fc6dc17d1461007e575b600080fd5b6100646100ac565b005b61007c6004808035906020019091905050610111565b005b6100aa600480803573ffffffffffffffffffffffffffffffffffffffff16906020019091905050610114565b005b7f2230584ab8fade77c64e5c255605d55e33bda0fd1da9b3b6b76e9554d36fc35133604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390a1565b50565b7f23ebbcb002c7eea3cd701655c9274556b48dfd35cdce070c2fbc9101b5f7159081604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390a1505600a165627a7a723058205a2a2b75d256f7a953b16acb5f3f761806d215ba49ca0859ea11a3a55ff1cbaf0029",
+  "deployedBytecode": "0x606060405260043610610057576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806330f7451e1461005c578063988e039014610066578063fc6dc17d1461007e575b600080fd5b6100646100ac565b005b61007c6004808035906020019091905050610111565b005b6100aa600480803573ffffffffffffffffffffffffffffffffffffffff16906020019091905050610114565b005b7f2230584ab8fade77c64e5c255605d55e33bda0fd1da9b3b6b76e9554d36fc35133604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390a1565b50565b7f23ebbcb002c7eea3cd701655c9274556b48dfd35cdce070c2fbc9101b5f7159081604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390a1505600a165627a7a723058205a2a2b75d256f7a953b16acb5f3f761806d215ba49ca0859ea11a3a55ff1cbaf0029",
   "sourceMap": "52:862:1:-;;;;;;;;;;;;;;;;;",
   "deployedSourceMap": "52:862:1:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;590:209;;;;;;381:147;;;;;;;;;;;;;;;;;;802:109;;;;;;;;;;;;;;;;;;;;590:209;767:25;781:10;767:25;;;;;;;;;;;;;;;;;;;;;;590:209::o;381:147::-;;:::o;802:109::-;882:22;897:6;882:22;;;;;;;;;;;;;;;;;;;;;;802:109;:::o",
   "source": "pragma solidity ^0.4.15;\n\n\nimport \"./BookPub.sol\";\n\nlibrary BookDistLib {\n\n  event NewQualifyingReaders ();          //Some readers become eligible after goal is met\n  event BookRequested(address reader);    //Reader claims book\n  event LogBookShipped(address reader);   //Author sends shipping confirmation\n\n  //Some readers become eligible to claim hard copy upon funding goal\n  function prepShip(uint readers){\n    //getFirstInLine(BookQueue storage queue)\n    //Book.readerEligibilityAndBalance.eligibleForBook = true;\n    }\n  //Readers can claim hard copy after they become eligible\n  function requestDelivery (){\n    //require(Book.readerEligibilityAndBalance.eligibleForBook = false = true);\n    //Book.readerEligibilityAndBalance.eligibleForBook = false;\n    BookRequested(msg.sender);\n    }\n  function markShipped (address reader){\n    //How should I alert the reader?\n    LogBookShipped(reader);\n    }\n\n}\n",
@@ -80,7 +80,7 @@
       "absolutePath": "/Users/marius/wip/BookPub/contracts/BookDistLib.sol",
       "exportedSymbols": {
         "BookDistLib": [
-          432
+          472
         ]
       }
     },
@@ -94,22 +94,22 @@
             ".15"
           ]
         },
-        "id": 395,
+        "id": 435,
         "name": "PragmaDirective",
         "src": "0:24:1"
       },
       {
         "attributes": {
-          "SourceUnit": 849,
+          "SourceUnit": 910,
           "absolutePath": "/Users/marius/wip/BookPub/contracts/BookPub.sol",
           "file": "./BookPub.sol",
-          "scope": 433,
+          "scope": 473,
           "symbolAliases": [
             null
           ],
           "unitAlias": ""
         },
-        "id": 396,
+        "id": 436,
         "name": "ImportDirective",
         "src": "27:23:1"
       },
@@ -125,10 +125,10 @@
           "documentation": null,
           "fullyImplemented": true,
           "linearizedBaseContracts": [
-            432
+            472
           ],
           "name": "BookDistLib",
-          "scope": 433
+          "scope": 473
         },
         "children": [
           {
@@ -144,12 +144,12 @@
                   ]
                 },
                 "children": [],
-                "id": 397,
+                "id": 437,
                 "name": "ParameterList",
                 "src": "104:2:1"
               }
             ],
-            "id": 398,
+            "id": 438,
             "name": "EventDefinition",
             "src": "77:30:1"
           },
@@ -166,7 +166,7 @@
                       "constant": false,
                       "indexed": false,
                       "name": "reader",
-                      "scope": 402,
+                      "scope": 442,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "address",
@@ -179,22 +179,22 @@
                           "name": "address",
                           "type": "address"
                         },
-                        "id": 399,
+                        "id": 439,
                         "name": "ElementaryTypeName",
                         "src": "188:7:1"
                       }
                     ],
-                    "id": 400,
+                    "id": 440,
                     "name": "VariableDeclaration",
                     "src": "188:14:1"
                   }
                 ],
-                "id": 401,
+                "id": 441,
                 "name": "ParameterList",
                 "src": "187:16:1"
               }
             ],
-            "id": 402,
+            "id": 442,
             "name": "EventDefinition",
             "src": "168:36:1"
           },
@@ -211,7 +211,7 @@
                       "constant": false,
                       "indexed": false,
                       "name": "reader",
-                      "scope": 406,
+                      "scope": 446,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "address",
@@ -224,22 +224,22 @@
                           "name": "address",
                           "type": "address"
                         },
-                        "id": 403,
+                        "id": 443,
                         "name": "ElementaryTypeName",
                         "src": "252:7:1"
                       }
                     ],
-                    "id": 404,
+                    "id": 444,
                     "name": "VariableDeclaration",
                     "src": "252:14:1"
                   }
                 ],
-                "id": 405,
+                "id": 445,
                 "name": "ParameterList",
                 "src": "251:16:1"
               }
             ],
-            "id": 406,
+            "id": 446,
             "name": "EventDefinition",
             "src": "231:37:1"
           },
@@ -253,7 +253,7 @@
               ],
               "name": "prepShip",
               "payable": false,
-              "scope": 432,
+              "scope": 472,
               "stateMutability": "nonpayable",
               "superFunction": null,
               "visibility": "public"
@@ -265,7 +265,7 @@
                     "attributes": {
                       "constant": false,
                       "name": "readers",
-                      "scope": 412,
+                      "scope": 452,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "uint256",
@@ -278,17 +278,17 @@
                           "name": "uint",
                           "type": "uint256"
                         },
-                        "id": 407,
+                        "id": 447,
                         "name": "ElementaryTypeName",
                         "src": "399:4:1"
                       }
                     ],
-                    "id": 408,
+                    "id": 448,
                     "name": "VariableDeclaration",
                     "src": "399:12:1"
                   }
                 ],
-                "id": 409,
+                "id": 449,
                 "name": "ParameterList",
                 "src": "398:14:1"
               },
@@ -299,7 +299,7 @@
                   ]
                 },
                 "children": [],
-                "id": 410,
+                "id": 450,
                 "name": "ParameterList",
                 "src": "412:0:1"
               },
@@ -310,12 +310,12 @@
                   ]
                 },
                 "children": [],
-                "id": 411,
+                "id": 451,
                 "name": "Block",
                 "src": "412:116:1"
               }
             ],
-            "id": 412,
+            "id": 452,
             "name": "FunctionDefinition",
             "src": "381:147:1"
           },
@@ -329,7 +329,7 @@
               ],
               "name": "requestDelivery",
               "payable": false,
-              "scope": 432,
+              "scope": 472,
               "stateMutability": "nonpayable",
               "superFunction": null,
               "visibility": "public"
@@ -342,7 +342,7 @@
                   ]
                 },
                 "children": [],
-                "id": 413,
+                "id": 453,
                 "name": "ParameterList",
                 "src": "615:2:1"
               },
@@ -353,7 +353,7 @@
                   ]
                 },
                 "children": [],
-                "id": 414,
+                "id": 454,
                 "name": "ParameterList",
                 "src": "617:0:1"
               },
@@ -387,11 +387,11 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 402,
+                              "referencedDeclaration": 442,
                               "type": "function (address)",
                               "value": "BookRequested"
                             },
-                            "id": 415,
+                            "id": 455,
                             "name": "Identifier",
                             "src": "767:13:1"
                           },
@@ -413,36 +413,36 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 3559,
+                                  "referencedDeclaration": 3563,
                                   "type": "msg",
                                   "value": "msg"
                                 },
-                                "id": 416,
+                                "id": 456,
                                 "name": "Identifier",
                                 "src": "781:3:1"
                               }
                             ],
-                            "id": 417,
+                            "id": 457,
                             "name": "MemberAccess",
                             "src": "781:10:1"
                           }
                         ],
-                        "id": 418,
+                        "id": 458,
                         "name": "FunctionCall",
                         "src": "767:25:1"
                       }
                     ],
-                    "id": 419,
+                    "id": 459,
                     "name": "ExpressionStatement",
                     "src": "767:25:1"
                   }
                 ],
-                "id": 420,
+                "id": 460,
                 "name": "Block",
                 "src": "617:182:1"
               }
             ],
-            "id": 421,
+            "id": 461,
             "name": "FunctionDefinition",
             "src": "590:209:1"
           },
@@ -456,7 +456,7 @@
               ],
               "name": "markShipped",
               "payable": false,
-              "scope": 432,
+              "scope": 472,
               "stateMutability": "nonpayable",
               "superFunction": null,
               "visibility": "public"
@@ -468,7 +468,7 @@
                     "attributes": {
                       "constant": false,
                       "name": "reader",
-                      "scope": 431,
+                      "scope": 471,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "address",
@@ -481,17 +481,17 @@
                           "name": "address",
                           "type": "address"
                         },
-                        "id": 422,
+                        "id": 462,
                         "name": "ElementaryTypeName",
                         "src": "824:7:1"
                       }
                     ],
-                    "id": 423,
+                    "id": 463,
                     "name": "VariableDeclaration",
                     "src": "824:14:1"
                   }
                 ],
-                "id": 424,
+                "id": 464,
                 "name": "ParameterList",
                 "src": "823:16:1"
               },
@@ -502,7 +502,7 @@
                   ]
                 },
                 "children": [],
-                "id": 425,
+                "id": 465,
                 "name": "ParameterList",
                 "src": "839:0:1"
               },
@@ -536,11 +536,11 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 406,
+                              "referencedDeclaration": 446,
                               "type": "function (address)",
                               "value": "LogBookShipped"
                             },
-                            "id": 426,
+                            "id": 466,
                             "name": "Identifier",
                             "src": "882:14:1"
                           },
@@ -550,41 +550,41 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 423,
+                              "referencedDeclaration": 463,
                               "type": "address",
                               "value": "reader"
                             },
-                            "id": 427,
+                            "id": 467,
                             "name": "Identifier",
                             "src": "897:6:1"
                           }
                         ],
-                        "id": 428,
+                        "id": 468,
                         "name": "FunctionCall",
                         "src": "882:22:1"
                       }
                     ],
-                    "id": 429,
+                    "id": 469,
                     "name": "ExpressionStatement",
                     "src": "882:22:1"
                   }
                 ],
-                "id": 430,
+                "id": 470,
                 "name": "Block",
                 "src": "839:72:1"
               }
             ],
-            "id": 431,
+            "id": 471,
             "name": "FunctionDefinition",
             "src": "802:109:1"
           }
         ],
-        "id": 432,
+        "id": 472,
         "name": "ContractDefinition",
         "src": "52:862:1"
       }
     ],
-    "id": 433,
+    "id": 473,
     "name": "SourceUnit",
     "src": "0:915:1"
   },
@@ -597,8 +597,13 @@
       "events": {},
       "links": {},
       "address": "0x37dfef4a54e90fbf602a7ae749d7eddb4bda0d5c"
+    },
+    "1517169247073": {
+      "events": {},
+      "links": {},
+      "address": "0xc57a23064cc8c37d25b3882a81ea6f202d3583e8"
     }
   },
   "schemaVersion": "1.0.1",
-  "updatedAt": "2018-01-28T18:47:14.685Z"
+  "updatedAt": "2018-01-28T20:02:00.088Z"
 }

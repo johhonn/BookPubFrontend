@@ -21,10 +21,7 @@ getWeb3().then(web3Instance => {
     console.log(instance);
     bookPub = instance;
   });
-})
-
-
-
+});
 
 class CoinSetup extends Component {
   state = {
@@ -57,7 +54,7 @@ class CoinSetup extends Component {
       startdate,
       enddate,
       amount,
-     }= this.state;
+    } = this.state;
     console.log(
       readershipStake,
       goal,
@@ -73,21 +70,9 @@ class CoinSetup extends Component {
       amount,
       { from: web3.eth.accounts[0] },
     );
-    bookPub.publishBook(
-      readershipStake,
-      goal,
-      toBeShipped,
-      userCount,
-      eligibleCount,
-      initialAmount,
-      coinName,
-      decimalUnits,
-      symbol,
-      startdate,
-      enddate,
-      amount,
-      { from: web3.eth.accounts[0] },
-    );
+    bookPub.publishBook(readershipStake, coinName, symbol, 'something', {
+      from: web3.eth.accounts[0],
+    });
   };
 
   render() {
@@ -120,7 +105,7 @@ class CoinSetup extends Component {
           </div>
           <div className="gov">
             <p>Governance</p>
-            <SelectField value={this.state.value} >
+            <SelectField value={this.state.value}>
               <MenuItem
                 value={'Boardroom Integration'}
                 primaryText="Board Room Integration"
@@ -146,12 +131,6 @@ class CoinSetup extends Component {
             />
             <br />
           </div>
-
-
-
-
-
-
         </div>
         <Link to="/dashboard">
           <button onClick={this.create}>Create</button>

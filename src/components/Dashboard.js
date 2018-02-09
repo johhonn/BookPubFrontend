@@ -25,6 +25,10 @@ class Dashboard extends Component {
       });
     });
   }
+  addPartner(){
+
+
+  }
   handleChange = (fieldName, event) => {
     const state = {
       ...this.state,
@@ -33,7 +37,22 @@ class Dashboard extends Component {
     this.setState(state);
   };
   modifyBook = () => {
-    console.log(this.state);
+    getWeb3().then(web3 => {
+      const network = Object.keys(BookPub.networks)[0];
+      const address = BookPub.networks[network].address;
+      bookPub = contract(BookPub);
+      bookPub.setProvider(web3.currentProvider);
+      bookPub.deployed().then(instance => {
+        console.log('instance: ', instance);
+        bookPub = instance;
+        instance.modifyBookStruct(this.state.goal,this.start.startdate,this.state.enddate,this.state.usersToAdmit).then(result => {
+        console.log(result);
+        });
+      });
+    });
+  };
+  showAddParter= () => {
+
   };
   render() {
     const { book } = this.state;
@@ -87,31 +106,36 @@ class Dashboard extends Component {
             <div className="in-buttons">
               <input
                 type="text"
-                value="Funding Goal"
+                className="input3"
+                placeholder="Funding Goal"
                 onChange={this.handleChange.bind(this, 'goal')}
               />
               <input
                 type="text"
-                value="Users To Admit"
+                className="input3"
+                placeholder="Users To Admit"
                 onChange={this.handleChange.bind(this, 'usersToAdmit')}
               />
               <input
                 type="text"
-                value="Amount"
+                className="input3"
+                placeholder="Amount"
                 onChange={this.handleChange.bind(this, 'amount')}
               />
               <input
                 type="text"
-                value="Sale Start"
+                className="input3"
+                placeholder="Sale Start"
                 onChange={this.handleChange.bind(this, 'saleStart')}
               />
               <input
                 type="text"
-                value="Sale End"
+                className="input3"
+                placeholder="Sale End"
                 onChange={this.handleChange.bind(this, 'saleEnd')}
               />
               <Link to="/user">
-                <button className="last-one" onClick={this.modifyBook}>
+                <button className="user-input2" onClick={this.modifyBook}>
                   Start Funding Round
                 </button>
               </Link>

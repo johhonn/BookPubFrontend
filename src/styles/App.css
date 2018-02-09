@@ -261,7 +261,15 @@ select {
   outline: none;
   color: #707070!important;
 }
-
+.input3 {
+  font-size: 12px;
+  padding: 10px;
+  width: 80px;
+  height: 8px;
+  border-radius: 2px;
+  outline: none;
+  color: #707070!important;
+}
 .user-input button {
   font-size: 15px;
   padding: 6px 12px;
@@ -272,7 +280,18 @@ select {
   margin-left: 20px;
   border-radius: 2px;
 }
-
+.user-input2 button {
+  font-size: 15px;
+  padding: 6px 12px;
+  width: 80px;
+  height: 8px;
+  outline: none;
+  border-color: transparent;
+  background-color: #6c67bc;
+  color: white;
+  margin-left: 20px;
+  border-radius: 2px;
+}
 .user-input-res {
   width: 50%;
   vertical-align: top;

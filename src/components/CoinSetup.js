@@ -70,7 +70,7 @@ class CoinSetup extends Component {
       amount,
       { from: web3.eth.accounts[0] },
     );
-    bookPub.publishBook(readershipStake, coinName, symbol, 'something', {
+    bookPub.createBookStruct(readershipStake, coinName, symbol, 'something', {
       from: web3.eth.accounts[0],
     });
   };

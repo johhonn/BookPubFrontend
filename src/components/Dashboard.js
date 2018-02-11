@@ -5,26 +5,25 @@ import BookPub from '../contracts/BookPub';
 import getWeb3 from '../utils/getWeb3';
 
 let bookPub;
-
+let web3;
+getWeb3().then(web3Instance => {
+  web3 = web3Instance;
+  const network = Object.keys(BookPub.networks)[0];
+  bookPub = contract(BookPub);
+  console.log('web3: ', web3.currentProvider);
+  bookPub.setProvider(web3.currentProvider);
+  bookPub.deployed().then(instance => {
+    console.log(instance);
+    bookPub = instance;
+  });
+});
 class Dashboard extends Component {
   state = {};
   constructor(props) {
     super(props);
-    getWeb3().then(web3 => {
-      const network = Object.keys(BookPub.networks)[0];
-      const address = BookPub.networks[network].address;
-      bookPub = contract(BookPub);
-      bookPub.setProvider(web3.currentProvider);
-      bookPub.deployed().then(instance => {
-        console.log('instance: ', instance);
-        bookPub = instance;
-        instance.getBook(0).then(book => {
-          this.setState({ book });
-          console.log('book: ', book);
-        });
-      });
-    });
+   console.log(bookPub)
   }
+
   addPartner(){
 
 
@@ -35,21 +34,18 @@ class Dashboard extends Component {
     };
     state[fieldName] = event.target.value;
     this.setState(state);
+    console.log(this.state);
   };
   modifyBook = () => {
-    getWeb3().then(web3 => {
-      const network = Object.keys(BookPub.networks)[0];
-      const address = BookPub.networks[network].address;
-      bookPub = contract(BookPub);
-      bookPub.setProvider(web3.currentProvider);
-      bookPub.deployed().then(instance => {
-        console.log('instance: ', instance);
-        bookPub = instance;
-        instance.modifyBookStruct(this.state.goal,this.start.startdate,this.state.enddate,this.state.usersToAdmit).then(result => {
-        console.log(result);
-        });
-      });
-    });
+
+
+    console.log( web3.eth.accounts[0])
+
+    bookPub.modifyBookStruct(1,this.state.goal,this.state.startdate,this.state.enddate,this.state.usersToAdmit  ,{from: web3.eth.accounts[0],})
+
+
+
+
   };
   showAddParter= () => {
 
@@ -126,18 +122,19 @@ class Dashboard extends Component {
                 type="text"
                 className="input3"
                 placeholder="Sale Start"
-                onChange={this.handleChange.bind(this, 'saleStart')}
+                onChange={this.handleChange.bind(this, 'startdate')}
               />
               <input
                 type="text"
                 className="input3"
                 placeholder="Sale End"
-                onChange={this.handleChange.bind(this, 'saleEnd')}
+                onChange={this.handleChange.bind(this, 'enddate')}
               />
               <Link to="/user">
                 <button className="user-input2" onClick={this.modifyBook}>
                   Start Funding Round
                 </button>
+
               </Link>
             </div>
           </div>
@@ -147,6 +144,9 @@ class Dashboard extends Component {
             </Link>
             <button>Configure Regulations</button>
             <button>Buy Back Coins</button>
+            <button className="user-input2" onClick={this.modifyBook}>
+              OtherStuff
+            </button>
           </div>
         </div>
         <div className="equity-ratios">

@@ -8,7 +8,7 @@ import MenuItem from 'material-ui/MenuItem';
 import getWeb3 from '../utils/getWeb3';
 import contract from 'truffle-contract';
 import BookPub from '../contracts/BookPub';
-
+let address='0xecd6e37c1c40c788d5f2c066505855d651dac21d';
 let bookPub;
 let web3;
 getWeb3().then(web3Instance => {
@@ -17,12 +17,12 @@ getWeb3().then(web3Instance => {
   bookPub = contract(BookPub);
   console.log('web3: ', web3.currentProvider);
   bookPub.setProvider(web3.currentProvider);
-  bookPub.deployed().then(instance => {
-    console.log(instance);
-    bookPub = instance;
+  bookPub.at(address).then(async instance => {
+    bookPub=instance;
+    console.log(bookPub);
+
   });
 });
-
 class CoinSetup extends Component {
   state = {
     readershipStake: 100,

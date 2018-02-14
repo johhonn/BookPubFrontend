@@ -1,9 +1,14 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import contract from 'truffle-contract';
-import BookPub from '../contracts/BookPub';
-import getWeb3 from '../utils/getWeb3';
 
+import getWeb3 from '../utils/getWeb3';
+import BookPub from '../contracts/BookPub';
+//bookPub.deployed().then(instance => {
+  //console.log(instance);
+  //bookPub = instance;
+//});
+let address='0x7e412f216947900b916015fa13b8d38500200f3e'
 let bookPub;
 let web3;
 getWeb3().then(web3Instance => {
@@ -12,9 +17,11 @@ getWeb3().then(web3Instance => {
   bookPub = contract(BookPub);
   console.log('web3: ', web3.currentProvider);
   bookPub.setProvider(web3.currentProvider);
-  bookPub.deployed().then(instance => {
-    console.log(instance);
-    bookPub = instance;
+  bookPub.at(address).then(async instance => {
+    bookPub=instance;
+    console.log(bookPub);
+
+
   });
 });
 class Dashboard extends Component {
@@ -144,9 +151,7 @@ class Dashboard extends Component {
             </Link>
             <button>Configure Regulations</button>
             <button>Buy Back Coins</button>
-            <button className="user-input2" onClick={this.modifyBook}>
-              OtherStuff
-            </button>
+
           </div>
         </div>
         <div className="equity-ratios">
